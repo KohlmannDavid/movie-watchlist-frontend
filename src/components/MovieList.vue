@@ -18,12 +18,13 @@ export default {
   name: 'MovieList',
   data() {
     return {
-      movies: [
-        { id: 1, title: 'Inception', director: 'Christopher Nolan', releaseYear: 2010, genre: 'Sci-Fi', personalRating: 9, watched: true, notes: 'Mindbending!' },
-        { id: 2, title: 'Interstellar', director: 'Christopher Nolan', releaseYear: 2014, genre: 'Sci-Fi', personalRating: 10, watched: true, notes: 'Absolute masterpiece' },
-        { id: 3, title: 'The Dark Knight', director: 'Christopher Nolan', releaseYear: 2008, genre: 'Action', personalRating: 10, watched: true, notes: 'Best superhero movie ever' }
-      ]
+      movies: []
     }
+  },
+  async mounted() {
+    const response = await fetch('https://movie-watchlist-s0io.onrender.com/movies')
+    this.movies = await response.json()
   }
 }
 </script>
+
