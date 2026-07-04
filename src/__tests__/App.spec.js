@@ -1,11 +1,20 @@
 import { describe, it, expect } from 'vitest'
-
 import { mount } from '@vue/test-utils'
-import App from '../App.vue'
+import MovieList from '../components/MovieList.vue'
 
-describe('App', () => {
-  it('mounts renders properly', () => {
-    const wrapper = mount(App)
-    expect(wrapper.text()).toContain('You did it!')
+describe('MovieList', () => {
+  it('renders the heading', () => {
+    const wrapper = mount(MovieList)
+    expect(wrapper.text()).toContain('My Movie Watchlist')
+  })
+
+  it('renders the add movie form', () => {
+    const wrapper = mount(MovieList)
+    expect(wrapper.text()).toContain('Add a Movie')
+  })
+
+  it('renders the add movie button', () => {
+    const wrapper = mount(MovieList)
+    expect(wrapper.text()).toContain('Add Movie')
   })
 })
